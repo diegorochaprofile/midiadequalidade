@@ -1,0 +1,4 @@
+# Deploy do site estatico (Netlify)
+[build]
+  publish = "marketing/site"
+  command = ""
