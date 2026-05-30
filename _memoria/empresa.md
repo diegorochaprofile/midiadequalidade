@@ -12,7 +12,7 @@
 - **Gabriel** — mais voltado a marketing e vendas
 
   Estágio inicial: ainda definindo funções. Por ora os dois fazem um pouco de tudo e querem enxergar todos os processos da empresa. Criar e documentar esses processos é parte do trabalho.
-**Ferramentas:** MazyOS + Claude Code e suas skills como espinha dorsal da operação. Demais ferramentas a definir.
+**Ferramentas:** MazyOS + Claude Code e suas skills como espinha dorsal da operação. Git + Node instalados na máquina do Diego. Código versionado no GitHub (repo privado **github.com/diegorochaprofile/midiadequalidade**) com **deploy automático no Netlify** (site em **midiadequalidade.netlify.app**). Demais ferramentas a definir.
 **Principais entregas:** Sites e landing pages, gestão e conteúdo de Instagram, tráfego pago, automação de processos (ex: atendimento via WhatsApp), criação de identidade visual.
 
 ## Contexto adicional

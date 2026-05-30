@@ -14,7 +14,12 @@
       "Read(//c/Users/DIEGO/Downloads/**)",
       "Read(//c/Users/DIEGO/AppData/Local/Temp/**)",
       "PowerShell(winget install --id Git.Git -e --accept-package-agreements --accept-source-agreements --disable-interactivity)",
-      "PowerShell(winget install --id OpenJS.NodeJS.LTS -e --accept-package-agreements --accept-source-agreements --disable-interactivity)"
+      "PowerShell(winget install --id OpenJS.NodeJS.LTS -e --accept-package-agreements --accept-source-agreements --disable-interactivity)",
+      "PowerShell(Start-Process \"https://github.com/new\")",
+      "PowerShell(\"Abri github.com/new no navegador.\")",
+      "PowerShell(Start-Process \"https://app.netlify.com/start\")",
+      "PowerShell(\"Abri o Netlify \\(import de projeto\\).\")",
+      "WebFetch(domain:midiadequalidade.netlify.app)"
     ],
     "additionalDirectories": [
       "C:\\Users\\DIEGO\\Desktop\\Midia-de-qualidade"

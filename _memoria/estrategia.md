@@ -12,7 +12,7 @@ Fundação. Empresa criada do zero em 2026. **Identidade visual já fechada** (l
 Construir a estrutura da Mídia de Qualidade do zero:
 
 1. ✅ **Identidade visual** — CONCLUÍDO (30/05/2026). Logo oficial: monograma "MQ" (`identidade/logo-mq.svg`). Paleta dark v2 (#07080E + azul #2E6BFF), fontes Inter Tight (títulos) + Inter (corpo). Guia em `identidade/design-guide.md`.
-2. 🎯 **Site institucional** ← FOCO ATUAL — estilo dark/tech, com animação e carrossel (referência: AstroLabs, sem copiar as cores). Diego quer ser guiado no que é preciso (stack, conteúdo, seções) pra construir um site nesse nível.
+2. 🎯 **Site institucional** — estilo dark/tech (referência: AstroLabs). **→ v0 NO AR (30/05/2026):** https://midiadequalidade.netlify.app — HTML/CSS/JS + GSAP/Lenis, fonte em `marketing/site/`, deploy automático via GitHub+Netlify. **Pendente:** WhatsApp/e-mail reais, domínio próprio (midiadequalidade.com.br), cases/logos reais (hoje são placeholders de IA), e possível migração pro Astro pra ter blog.
 3. **Presença no Instagram** — criar perfil e começar a produzir conteúdo
 4. **Workflow de processos da empresa** — mapear e documentar como a operação roda
 5. **Divisão de funções entre os sócios** — o que Diego e Gabriel devem focar nesse momento inicial
