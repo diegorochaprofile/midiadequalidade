@@ -7,3 +7,6 @@ Backups-MazyOS/
 Thumbs.db
 desktop.ini
 *.log
+
+# Local Netlify folder
+.netlify
