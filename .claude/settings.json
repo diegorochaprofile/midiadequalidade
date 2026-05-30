@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(git clone https://github.com/mazzeoia/MazyOS.git)",
+      "PowerShell($paths = @\\(\"$env:ProgramFiles\\\\Git\\\\cmd\\\\git.exe\", \"${env:ProgramFiles\\(x86\\)}\\\\Git\\\\cmd\\\\git.exe\", \"$env:LOCALAPPDATA\\\\Programs\\\\Git\\\\cmd\\\\git.exe\"\\); foreach \\($p in $paths\\) { if \\(Test-Path $p\\) { Write-Output \"FOUND: $p\" } }; Get-Command git.exe -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source)",
+      "PowerShell($ProgressPreference = 'SilentlyContinue'; $url = \"https://github.com/mazzeoia/MazyOS/archive/refs/heads/main.zip\"; try { Invoke-WebRequest -Uri $url -OutFile \"MazyOS.zip\" -ErrorAction Stop; Write-Output \"OK main\" } catch { Write-Output \"main falhou, tentando master\"; try { Invoke-WebRequest -Uri \"https://github.com/mazzeoia/MazyOS/archive/refs/heads/master.zip\" -OutFile \"MazyOS.zip\" -ErrorAction Stop; Write-Output \"OK master\" } catch { Write-Output \"ERRO: $_\" } })",
+      "PowerShell(foreach \\($d in @\\(\"clientes\",\"briefings\",\"propostas\"\\)\\) { if \\(-not \\(Test-Path $d\\)\\) { New-Item -ItemType Directory -Path $d | Out-Null }; $gk = Join-Path $d \".gitkeep\"; if \\(-not \\(Test-Path $gk\\)\\) { New-Item -ItemType File -Path $gk | Out-Null } }; Write-Output \"Pastas criadas\"; Get-ChildItem -Directory -Name)",
+      "PowerShell(Start-Process \"c:\\\\Users\\\\DIEGO\\\\Desktop\\\\Midia-de-qualidade\\\\identidade\\\\marca-preview.html\")",
+      "PowerShell(Start-Process \"c:\\\\Users\\\\DIEGO\\\\Desktop\\\\Midia-de-qualidade\\\\identidade\\\\simbolo-lab.html\")",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\DIEGO\\\\Desktop\\\\Midia-de-qualidade\\\\marketing\\\\site\")",
+      "PowerShell(\"ok\")",
+      "PowerShell(Start-Process \"c:\\\\Users\\\\DIEGO\\\\Desktop\\\\Midia-de-qualidade\\\\marketing\\\\site\\\\index.html\")",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\DIEGO\\\\Desktop\\\\Midia-de-qualidade\\\\marketing\\\\site\\\\assets\")",
+      "Read(//c/Users/DIEGO/Downloads/**)",
+      "Read(//c/Users/DIEGO/AppData/Local/Temp/**)",
+      "PowerShell(winget install --id Git.Git -e --accept-package-agreements --accept-source-agreements --disable-interactivity)",
+      "PowerShell(winget install --id OpenJS.NodeJS.LTS -e --accept-package-agreements --accept-source-agreements --disable-interactivity)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\DIEGO\\Desktop\\Midia-de-qualidade"
+    ]
+  }
+}

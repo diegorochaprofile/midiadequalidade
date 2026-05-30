@@ -1,0 +1,9 @@
+﻿node_modules/
+dist/
+.astro/
+*.zip
+Backups-MazyOS/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
