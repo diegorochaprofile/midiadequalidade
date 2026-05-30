@@ -1,4 +1,8 @@
-# Deploy do site estatico (Netlify)
+# Deploy do site Astro (Netlify)
 [build]
-  publish = "marketing/site"
-  command = ""
+  base = "site"
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"

@@ -1,0 +1,153 @@
+---
+import '../styles/global.css';
+
+const {
+  title = 'Mídia de Qualidade — Presença digital com rigor',
+  description = 'Agência de marketing e presença digital: sites, conteúdo, tráfego pago e automação, com qualidade de quem domina o ofício.',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="pre">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="icon" type="image/png" href="/assets/logo-mark.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content="https://midiadequalidade.netlify.app/assets/hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+<div class="grain"></div>
+<div class="cursor"></div><div class="cursor-dot"></div>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="/" class="brand" data-cursor>
+      <img src="/assets/logo-mark.png" class="brand-mark" alt="Mídia de Qualidade" />
+      <span class="wm">Mídia <b>de Qualidade</b></span>
+    </a>
+    <nav class="nav-links" id="navlinks">
+      <a href="/#servicos">Serviços</a><a href="/#metodo">Método</a><a href="/#cases">Resultados</a><a href="/blog">Blog</a><a href="/#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="/#contato" class="btn btn-ghost magnetic" data-cursor>Falar com a gente</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<slot />
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div>
+      <a href="/" data-cursor><img src="/assets/logo-full.png" class="foot-logo" alt="Mídia de Qualidade" /></a>
+      <p class="tag">Presença digital construída com rigor técnico e qualidade humana.</p>
+    </div>
+    <div class="foot-links">
+      <div class="foot-col"><h4>Navegação</h4><a href="/#servicos">Serviços</a><a href="/#metodo">Método</a><a href="/#cases">Resultados</a><a href="/blog">Blog</a><a href="/#faq">FAQ</a></div>
+      <div class="foot-col"><h4>Contato</h4><a href="https://wa.me/5531985945898" target="_blank">WhatsApp</a><a href="mailto:midiadequalidade7@gmail.com">E-mail</a><a href="https://instagram.com" target="_blank">Instagram</a></div>
+    </div>
+  </div>
+  <div class="copy"><span>© 2026 Mídia de Qualidade. Todos os direitos reservados.</span><span>midiadequalidade.com.br</span></div>
+</div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" is:inline></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" is:inline></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" is:inline></script>
+<script is:inline>
+(function(){
+  var root = document.documentElement;
+
+  // hero image fallback (mostra o mesh se faltar)
+  var himg = new Image(); himg.src = '/assets/hero.jpg';
+  himg.onerror = function(){ var h = document.getElementById('heroImg'); if(h) h.style.display='none'; };
+
+  // marquee de logos (com fallback p/ placeholder)
+  var track = document.getElementById('mqtrack');
+  if(track){ var s=''; for(var r=0;r<2;r++){ for(var i=1;i<=6;i++){ s += '<div class="logo-slot"><img src="/assets/logo-'+i+'.png" alt="" onload="this.parentElement.classList.add(\'loaded\')" onerror="this.remove()"><span>logo '+i+'</span></div>'; } } track.innerHTML = s; }
+
+  // cases: marca como carregado quando a imagem existe
+  document.querySelectorAll('.case .thumb img').forEach(function(im){
+    if(im.complete && im.naturalWidth){ im.parentElement.classList.add('loaded'); }
+    else { im.addEventListener('load', function(){ im.parentElement.classList.add('loaded'); }); im.addEventListener('error', function(){ im.remove(); }); }
+  });
+
+  // nav scroll state
+  var hdr = document.getElementById('hdr');
+  var onScroll = function(){ hdr.classList.toggle('scrolled', window.scrollY>30); };
+  onScroll(); window.addEventListener('scroll', onScroll);
+
+  // mobile menu
+  var burger = document.getElementById('burger'), links = document.getElementById('navlinks');
+  if(burger && links){ burger.addEventListener('click', function(){ links.classList.toggle('open'); }); links.addEventListener('click', function(e){ if(e.target.tagName==='A') links.classList.remove('open'); }); }
+
+  // FAQ accordion
+  document.querySelectorAll('.qa button').forEach(function(b){ b.addEventListener('click', function(){
+    var qa=b.parentElement, ans=qa.querySelector('.ans'), open=qa.classList.contains('open');
+    document.querySelectorAll('.qa').forEach(function(x){ x.classList.remove('open'); x.querySelector('.ans').style.maxHeight=null; });
+    if(!open){ qa.classList.add('open'); ans.style.maxHeight = ans.scrollHeight+'px'; }
+  }); });
+
+  // formulário (Netlify Forms via AJAX)
+  var lf = document.getElementById('leadform');
+  if(lf){ lf.addEventListener('submit', function(e){ e.preventDefault(); var f=e.target; var d=new URLSearchParams(new FormData(f)).toString();
+    fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:d})
+      .then(function(){ var ok=document.getElementById('formok'); if(ok) ok.style.display='block'; f.reset(); })
+      .catch(function(){ var ok=document.getElementById('formok'); if(ok) ok.style.display='block'; f.reset(); });
+  }); }
+
+  // cursor + magnético (só pointer fino)
+  if(window.matchMedia('(pointer:fine)').matches){
+    var cur=document.querySelector('.cursor'), dot=document.querySelector('.cursor-dot');
+    var mx=innerWidth/2, my=innerHeight/2, cx=mx, cy=my;
+    window.addEventListener('mousemove', function(e){ mx=e.clientX; my=e.clientY; dot.style.transform='translate('+(mx-2.5)+'px,'+(my-2.5)+'px)'; });
+    (function loop(){ cx+=(mx-cx)*.18; cy+=(my-cy)*.18; cur.style.transform='translate('+(cx-17)+'px,'+(cy-17)+'px)'; requestAnimationFrame(loop); })();
+    document.querySelectorAll('[data-cursor]').forEach(function(el){ el.addEventListener('mouseenter', function(){ cur.classList.add('grow'); }); el.addEventListener('mouseleave', function(){ cur.classList.remove('grow'); }); });
+    document.querySelectorAll('.magnetic').forEach(function(el){
+      el.addEventListener('mousemove', function(e){ var rc=el.getBoundingClientRect(); el.style.transform='translate('+((e.clientX-rc.left-rc.width/2)*.25)+'px,'+((e.clientY-rc.top-rc.height/2)*.35)+'px)'; });
+      el.addEventListener('mouseleave', function(){ el.style.transform=''; });
+    });
+  }
+
+  // animações (GSAP + Lenis)
+  var lenis = null;
+  var hasGSAP = (typeof gsap!=='undefined') && (typeof ScrollTrigger!=='undefined');
+  if(hasGSAP){
+    gsap.registerPlugin(ScrollTrigger);
+    if(typeof Lenis!=='undefined'){
+      lenis = new Lenis({lerp:.1, smoothWheel:true});
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add(function(t){ lenis.raf(t*1000); }); gsap.ticker.lagSmoothing(0);
+    }
+    var tl = gsap.timeline({defaults:{ease:'power4.out'}});
+    tl.to('.hero-title .line>span', {y:0, duration:1.1, stagger:.12}, .15)
+      .to('.hero-anim', {opacity:1, y:0, duration:.9, stagger:.12}, '-=.7');
+    gsap.to('.hero-img,.hero-mesh', {yPercent:18, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
+    ScrollTrigger.batch('.reveal', {start:'top 86%', onEnter:function(b){ gsap.to(b, {opacity:1, y:0, duration:.85, stagger:.09, ease:'power3.out', overwrite:true}); }});
+    requestAnimationFrame(function(){ ScrollTrigger.refresh(); });
+  } else {
+    root.classList.remove('pre');
+  }
+
+  // navegação por âncora: suave na home, navega normal em outras páginas
+  var onHome = (location.pathname==='/' || location.pathname==='/index.html' || location.pathname==='');
+  document.querySelectorAll('a[href^="#"], a[href^="/#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = (a.getAttribute('href').split('#')[1]) || '';
+      if(!id) return;
+      if(onHome){ var t=document.getElementById(id); if(t){ e.preventDefault(); if(lenis){ lenis.scrollTo(t, {offset:-20}); } else { t.scrollIntoView({behavior:'smooth'}); } } }
+    });
+  });
+})();
+</script>
+</body>
+</html>
