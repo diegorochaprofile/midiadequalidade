@@ -74,7 +74,10 @@ não inclui nenhum deles.)
 
 ### Passo 5 — Deploy de produção
 
+Rodar **da raiz do projeto** (onde fica o `.netlify/state.json` do link), com o caminho `site/dist`:
+
 ```powershell
+cd "<raiz>"
 & "$env:APPDATA\npm\netlify.cmd" deploy --prod --dir site/dist
 ```
 

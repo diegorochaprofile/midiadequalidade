@@ -26,7 +26,7 @@ e a publicação real no feed (site + Instagram + Facebook).
   - `META_PAGE_ID` — ID da Página FB
   - `META_IG_USER_ID` — ID da conta Insta Business
   - `SITE_URL` — ex: `https://exemplo.com.br`
-- Site com deploy automático a partir do `main` do GitHub (Netlify, Vercel, etc.)
+- Site Astro publicado no Netlify **via CLI** (ver skill `/publicar-site`). **Atenção: NÃO há deploy automático via Git** — o `git push` versiona, mas quem coloca no ar é o `netlify deploy` do Passo 6.
 - Conta Insta Business conectada à Página FB
 - Página FB com permissões corretas no Meta App
 - Scripts `scripts/postar-instagram.js` e `scripts/postar-facebook.js` configurados
@@ -81,23 +81,32 @@ git commit -m "publicar: <título do blog>"
 git push origin main
 ```
 
-Esperar push terminar com sucesso.
+Esperar push terminar com sucesso. **Isso só versiona — não publica.** A publicação real é o Passo 6.
 
-### Passo 6 — Aguardar deploy
+### Passo 6 — Build + deploy no Netlify (via CLI)
 
-Deploy automático (Netlify/Vercel) leva ~1-2 min. Validar que o post está no ar:
+O `git push` **não** dispara deploy automático. Buildar o Astro e subir via CLI — mesmo fluxo
+da skill `/publicar-site` (ela tem as manhas de PATH do Windows). O `npm run build` copia
+`site/public/img/posts/<slug>/` pra dentro de `site/dist/`, então os slides vão junto:
 
-```bash
-curl -sf -o /dev/null -w "%{http_code}" "$SITE_URL/blog/$slug/"
+```powershell
+$env:Path = "C:\Program Files\nodejs;" + $env:Path
+cd "<raiz>\site"
+npm run build      # confirmar "Complete!" — se falhar, abortar (não deploiar build quebrado)
+cd "<raiz>"
+& "$env:APPDATA\npm\netlify.cmd" deploy --prod --dir site/dist
 ```
 
-Aguardar HTTP 200 (com timeout de 5 min). Também checar que pelo menos `slide-01.png` está acessível:
+Aguardar **"Deploy is live!"**. Depois validar que o post **e** a primeira imagem estão no ar
+(a Meta API busca a imagem por URL pública — sem isso ela falha):
 
 ```bash
-curl -sf -o /dev/null -w "%{http_code}" "$SITE_URL/img/posts/$slug/slide-01.png"
+curl -s -o /dev/null -w "%{http_code}\n" "$SITE_URL/blog/$slug/"
+curl -s -o /dev/null -w "%{http_code}\n" "$SITE_URL/img/posts/$slug/slide-01.png"
 ```
 
-Sem isso, a Meta API vai falhar — ela busca a imagem por URL pública.
+Ambos têm que dar **200**. Se o `/blog/<slug>/` não subir, conferir que o `draft: false` foi
+salvo (Passo 3) e que o `<slug>.md` está na content collection do Astro (`site/src/content/blog/`).
 
 ### Passo 7 — Postar no Instagram
 
@@ -139,7 +148,8 @@ LinkedIn:    pendente — texto pronto em legenda-linkedin.md (postar manual)
 ## Tratamento de erro
 
 - Push falhou: rollback do `draft: false` (restaura `draft: true`), relata e para
-- Deploy não subiu em 5 min: relata, pergunta se quer continuar mesmo assim ou abortar
+- Build do Astro falhou: abortar antes do deploy (não publicar build quebrado), relata o erro
+- `netlify deploy` falhou ou URL não dá 200: relata, pergunta se quer tentar de novo ou abortar — **não seguir pra Meta API** sem o post e a imagem no ar
 - Insta API falhou: para e relata. Site já está no ar, blog publicado — só o post no feed que não foi
 - FB falhou mas Insta OK: relata, sugere tentar de novo só o FB depois
 
