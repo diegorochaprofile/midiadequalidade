@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #2b2b2b; }
+
+  .slide {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    background: #07080E;
+    color: #F4F6FF;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 88px 84px;
+    margin: 0 auto 40px;
+  }
+  .slide.surface { background: #0B0D15; }
+  .slide.blue {
+    background: radial-gradient(120% 90% at 80% 0%, #5B8DFF 0%, #2E6BFF 42%, #1f4fd0 100%);
+  }
+
+  /* profundidade: glow + grade discreta */
+  .slide::before {
+    content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(60% 45% at 12% 8%, rgba(46,107,255,0.22), transparent 70%),
+      radial-gradient(55% 40% at 95% 100%, rgba(110,86,240,0.16), transparent 70%);
+  }
+  .slide.blue::before {
+    background: radial-gradient(70% 50% at 15% 10%, rgba(255,255,255,0.18), transparent 70%);
+  }
+  .slide::after {
+    content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(244,246,255,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(244,246,255,0.035) 1px, transparent 1px);
+    background-size: 90px 90px;
+    mask-image: radial-gradient(80% 80% at 50% 40%, #000 30%, transparent 100%);
+    -webkit-mask-image: radial-gradient(80% 80% at 50% 40%, #000 30%, transparent 100%);
+  }
+  .slide.blue::after { opacity: 0.5; }
+
+  .row { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 32px; letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #2E6BFF, #5B8DFF); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .slide.blue .logo { background: none; -webkit-background-clip: initial; background-clip: initial; color: #fff; }
+  .counter { font-size: 15px; font-weight: 600; letter-spacing: 0.18em; color: rgba(244,246,255,0.5); }
+  .slide.blue .counter { color: rgba(255,255,255,0.8); }
+
+  .body { position: relative; z-index: 2; }
+  .eyebrow { font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.26em; color: #5B8DFF; }
+  .slide.blue .eyebrow { color: rgba(255,255,255,0.92); }
+  .rule { width: 64px; height: 4px; border-radius: 2px; margin: 28px 0; background: linear-gradient(90deg, #2E6BFF, #5B8DFF); }
+  .slide.blue .rule { background: rgba(255,255,255,0.85); }
+
+  h1.title { font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 98px; line-height: 0.98; letter-spacing: -0.04em; margin-top: 30px; }
+  h2.head { font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 70px; line-height: 1.04; letter-spacing: -0.035em; }
+  .lead { font-size: 30px; font-weight: 500; line-height: 1.45; color: rgba(244,246,255,0.74); margin-top: 30px; max-width: 760px; }
+  .slide.blue .lead { color: rgba(255,255,255,0.9); }
+  .grad { background: linear-gradient(135deg, #2E6BFF, #5B8DFF); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  .num { font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 300px; line-height: 0.78; letter-spacing: -0.05em;
+    background: linear-gradient(135deg, #2E6BFF, #5B8DFF); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  .quote-mark { font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 240px; line-height: 0.5; color: rgba(46,107,255,0.22); height: 90px; }
+
+  .foot { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(244,246,255,0.12); padding-top: 28px; }
+  .slide.blue .foot { border-top-color: rgba(255,255,255,0.28); }
+  .handle { font-size: 19px; font-weight: 600; color: rgba(244,246,255,0.6); }
+  .slide.blue .handle { color: rgba(255,255,255,0.85); }
+  .swipe { font-size: 16px; font-weight: 600; letter-spacing: 0.04em; color: #5B8DFF; display: flex; align-items: center; gap: 10px; }
+  .slide.blue .swipe { color: #fff; }
+
+  /* CTA final */
+  .cta-center { position: relative; z-index: 2; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .cta-logo { font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 84px; letter-spacing: -0.03em; color: #fff; }
+  .cta-head { font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 58px; line-height: 1.06; letter-spacing: -0.03em; color: #fff; margin-top: 22px; }
+  .cta-pill { margin-top: 40px; padding: 22px 44px; border-radius: 16px; background: #07080E; color: #fff; font-size: 24px; font-weight: 600; }
+  .cta-url { margin-top: 30px; font-size: 22px; font-weight: 500; color: rgba(255,255,255,0.88); }
+</style>
+</head>
+<body>
+
+  <!-- 01 — CAPA -->
+  <section class="slide">
+    <div class="row"><span class="logo">MQ</span><span class="counter">01 / 07</span></div>
+    <div class="body">
+      <span class="eyebrow">Presença digital</span>
+      <h1 class="title">Site próprio<br/>ou só <span class="grad">Instagram?</span></h1>
+      <p class="lead">O que realmente sustenta a autoridade do seu negócio no digital.</p>
+    </div>
+    <div class="foot"><span class="handle">@midiadequalidade</span><span class="swipe">Arraste →</span></div>
+  </section>
+
+  <!-- 02 — PROBLEMA -->
+  <section class="slide surface">
+    <div class="row"><span class="logo">MQ</span><span class="counter">02 / 07</span></div>
+    <div class="body">
+      <span class="eyebrow">O problema</span>
+      <div class="rule"></div>
+      <h2 class="head">Só no Instagram, você constrói em <span class="grad">terreno alugado.</span></h2>
+      <p class="lead">A plataforma decide quem te vê, muda as regras quando quer — e os seguidores nunca são seus.</p>
+    </div>
+    <div class="foot"><span class="handle">@midiadequalidade</span><span class="swipe">Arraste →</span></div>
+  </section>
+
+  <!-- 03 — RISCO (citação) -->
+  <section class="slide">
+    <div class="row"><span class="logo">MQ</span><span class="counter">03 / 07</span></div>
+    <div class="body">
+      <div class="quote-mark">”</div>
+      <h2 class="head">Se a conta cai,<br/>o vínculo cai junto.</h2>
+      <p class="lead">Você não é dono da sua lista de contatos. Não dá pra exportar seguidores nem falar com eles fora da plataforma.</p>
+    </div>
+    <div class="foot"><span class="handle">@midiadequalidade</span><span class="swipe">Arraste →</span></div>
+  </section>
+
+  <!-- 04 — O QUE O SITE FAZ -->
+  <section class="slide surface">
+    <div class="row"><span class="logo">MQ</span><span class="counter">04 / 07</span></div>
+    <div class="body">
+      <span class="eyebrow">O que o site faz</span>
+      <div class="rule"></div>
+      <h2 class="head">Ser encontrado por quem <span class="grad">já está procurando.</span></h2>
+      <p class="lead">No Google, a pessoa chega com intenção — já quer resolver. Um site responde a essa busca; um perfil, não.</p>
+    </div>
+    <div class="foot"><span class="handle">@midiadequalidade</span><span class="swipe">Arraste →</span></div>
+  </section>
+
+  <!-- 05 — A VIRADA (azul) -->
+  <section class="slide blue">
+    <div class="row"><span class="logo">MQ</span><span class="counter">05 / 07</span></div>
+    <div class="body">
+      <span class="eyebrow">A virada de chave</span>
+      <div class="rule"></div>
+      <h2 class="head">Instagram é vitrine.<br/>Site é alicerce.</h2>
+      <p class="lead">A vitrine atrai quem passa na frente. O alicerce sustenta quem decidiu entrar.</p>
+    </div>
+    <div class="foot"><span class="handle">@midiadequalidade</span><span class="swipe">Arraste →</span></div>
+  </section>
+
+  <!-- 06 — JUNTOS -->
+  <section class="slide">
+    <div class="row"><span class="logo">MQ</span><span class="counter">06 / 07</span></div>
+    <div class="body">
+      <span class="eyebrow">Juntos</span>
+      <div class="rule"></div>
+      <h2 class="head">Conectados, os dois <span class="grad">rendem mais.</span></h2>
+      <p class="lead">A bio leva pro site; o site mostra que tem gente séria por trás. O erro é pedir que a vitrine faça o trabalho do alicerce.</p>
+    </div>
+    <div class="foot"><span class="handle">@midiadequalidade</span><span class="swipe">Arraste →</span></div>
+  </section>
+
+  <!-- 07 — CTA FINAL (azul) -->
+  <section class="slide blue">
+    <div class="row"><span class="logo">MQ</span><span class="counter">07 / 07</span></div>
+    <div class="cta-center">
+      <div class="cta-logo">MQ</div>
+      <div class="cta-head">Texto completo<br/>no nosso blog.</div>
+      <div class="cta-pill">midiadequalidade.netlify.app/blog</div>
+      <div class="cta-url">Mídia de Qualidade · @midiadequalidade</div>
+    </div>
+    <div class="foot"><span class="handle">Presença digital com rigor</span><span class="swipe">Salve este post ✦</span></div>
+  </section>
+
+</body>
+</html>
