@@ -4,9 +4,7 @@
 
 ## Em andamento
 
-- [ ] Estruturar a casa: identidade visual + logo
-- [ ] Definir tipografia e fechar paleta da marca (a partir de `identidade/design-guide.md`)
-- [ ] Site institucional dark/tech (definir stack, conteúdo e seções)
+- [ ] Site: domínio próprio (midiadequalidade.com.br) + cases/logos reais (hoje placeholders)
 - [ ] Criar e iniciar perfil de Instagram
 - [ ] Mapear workflow de processos da agência
 - [ ] Definir divisão de funções entre Diego e Gabriel pro estágio inicial
@@ -20,3 +18,5 @@
 ## Concluído
 
 - [x] Instalar e configurar o MazyOS (2026-05-30)
+- [x] Identidade visual + logo + tipografia/paleta (2026-05-30)
+- [x] Site institucional dark/tech no ar — migrado pra Astro com blog (2026-05-30) — https://midiadequalidade.netlify.app
