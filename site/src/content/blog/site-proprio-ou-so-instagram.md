@@ -2,7 +2,7 @@
 title: "Site próprio ou só Instagram? O que sustenta a autoridade do seu negócio"
 description: "Depender só do Instagram é construir em terreno alugado. Entenda o que um site próprio sustenta — autoridade, controle e ser encontrado por quem procura."
 date: 2026-05-30
-draft: true
+draft: false
 ---
 
 Hoje quase todo negócio "está na internet" por causa do Instagram. Um perfil, alguns posts, o WhatsApp na bio — e pronto, a presença digital se resume a isso. Funciona por um tempo. Até o dia em que para de funcionar.
