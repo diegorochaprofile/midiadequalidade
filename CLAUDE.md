@@ -182,3 +182,24 @@ vendedor de promessa. Detalhe completo em `_memoria/preferencias.md`.
 - [ ] Google Ads
 
 *(Marcar conforme for instalando os MCPs)*
+
+## Skills externas instaladas
+
+- **HELIX** (`~/.claude/skills/helix`, global — disponível em qualquer projeto).
+  Engine de *design intelligence* + geração de código. Decodifica a "DNA
+  visual" de qualquer referência (URL, landing, carrossel, screenshot) em
+  `BLUEPRINT.md`, tokens Tailwind, `design-system.md`, `voice.md` e auditoria
+  — ou gera uma landing **Next.js + React + Tailwind** completa. Também valida
+  código contra os contratos (`helix validate`) e mede fidelidade visual vs.
+  referência (`helix mirror`).
+  - **Quando usar na agência:** entregas de **site/landing pra cliente**
+    (decodificar uma referência que o cliente curtiu → design system →
+    landing), auditar o site de um prospect num pitch, ou montar pacote de
+    onboarding visual. Casa com a candidata a skill "padrão de site dark/tech
+    pra clientes" (ver `_memoria/estrategia.md`).
+  - **Como chamar:** "helix wizard" (guiado) ou comandos diretos —
+    "helix decode <url>", "helix landing", "helix audit <url>". Precisa de
+    Node + Playwright/Chromium (já instalados nesta máquina).
+  - ⚠️ **Stack:** HELIX gera **Next.js + Tailwind**. O site institucional da
+    agência é **Astro** (`site/`) — usar HELIX pra entregas/landings, não pra
+    mexer no site institucional sem adaptar a saída.
