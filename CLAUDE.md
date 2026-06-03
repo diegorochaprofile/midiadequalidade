@@ -135,6 +135,8 @@ redes, processos) antes/enquanto começa a atender em escala.
 - `briefings/` — briefings antes de virar cliente
 - `propostas/` — propostas comerciais em andamento
 - `marketing/` — conteúdo institucional da própria agência
+- `site-next/` — **site institucional oficial** (Next.js, export estático); publica via `/publicar-site`
+- `site/` — site Astro antigo, **aposentado** (mantido pelo blog, hoje fora do ar)
 - `saidas/` — documentos pontuais, análises
 - `dados/` — arquivos a analisar (relatórios de cliente, exports)
 - `scripts/` — automações e utilitários

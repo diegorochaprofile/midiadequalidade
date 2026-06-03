@@ -1,8 +1,9 @@
-# Deploy do site Astro (Netlify)
+# Deploy do site oficial — Next.js (static export) em site-next/
+# Publicacao real e feita via Netlify CLI (skill /publicar-site); auto-deploy via Git esta desligado.
 [build]
-  base = "site"
+  base = "site-next"
   command = "npm run build"
-  publish = "dist"
+  publish = "out"
 
 [build.environment]
   NODE_VERSION = "20"

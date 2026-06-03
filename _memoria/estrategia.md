@@ -5,15 +5,15 @@
 
 ## Fase
 
-Fundação. Empresa criada do zero em 2026. **Identidade visual já fechada** (logo MQ + marca v2 — ver `identidade/design-guide.md`) e **site institucional no ar** (Astro, com blog). Ainda sem perfil de Instagram. Foco total em **estruturar a própria casa** antes/enquanto começa a captar cliente. Mentalidade de growth.
+Fundação. Empresa criada do zero em 2026. **Identidade visual já fechada** (logo MQ — ver `identidade/design-guide.md`) e **site institucional no ar** (Next.js, migrado do Astro via HELIX). Instagram com handle definido (**@midiadequalidadeofc**), perfil em montagem. Foco total em **estruturar a própria casa** antes/enquanto começa a captar cliente. Mentalidade de growth.
 
 ## Prioridade principal
 
 Construir a estrutura da Mídia de Qualidade do zero:
 
 1. ✅ **Identidade visual** — CONCLUÍDO (30/05/2026). Logo oficial: monograma "MQ" (`identidade/logo-mq.svg`). Paleta dark v2 (#07080E + azul #2E6BFF), fontes Inter Tight (títulos) + Inter (corpo). Guia em `identidade/design-guide.md`.
-2. 🎯 **Site institucional** — estilo dark/tech (referência: AstroLabs). **→ NO AR (30/05/2026):** https://midiadequalidade.netlify.app — migrado pra **Astro** (fonte em `site/`, já com blog em `/blog/`). Deploy via **Netlify CLI** (skill `/publicar-site`) — **não há auto-deploy via Git** (conectar no painel fica como opção futura). Contatos já são reais (WhatsApp (31) 98594-5898 + midiadequalidade7@gmail.com) e tem form de contato Netlify. A v0 estática antiga em `marketing/site/` está aposentada. **Pendente:** domínio próprio (midiadequalidade.com.br) e cases/logos reais (hoje placeholders de IA, rotulados como "ilustrativos").
-3. **Presença no Instagram** — criar perfil e começar a produzir conteúdo
+2. 🎯 **Site institucional** — dark/tech. **→ NO AR:** https://midiadequalidade.netlify.app — **migrado pra Next.js** (export estático em `site-next/`) em 02/06/2026, gerado via **HELIX** a partir do easygrowth.com.br (estrutura + animações: hero animado, conector de energia no Método, pilha de "pastas" nos Serviços) revestido com a identidade MQ. Deploy via **Netlify CLI** (skill `/publicar-site`) — sem auto-deploy via Git. O **Astro** (`site/`) está **aposentado** — **o blog saiu do ar** com a troca. Contatos reais (WhatsApp (31) 98594-5898 + midiadequalidade7@gmail.com). **Pendente:** refazer o blog no Next.js (recuperar o post "Site próprio ou só Instagram"), domínio próprio (midiadequalidade.com.br), cases/logos reais (hoje placeholders).
+3. **Presença no Instagram** — handle **@midiadequalidadeofc** já criado; foco é montar o perfil (bio, foto, destaques) e **produzir conteúdo** (o pipeline `/publicar-tema` → `/aprovar-post` já existe).
 4. **Workflow de processos da empresa** — mapear e documentar como a operação roda
 5. **Divisão de funções entre os sócios** — o que Diego e Gabriel devem focar nesse momento inicial
 6. **Planejamento de crescimento com projeção de receita** — metas de faturamento ao longo dos próximos meses

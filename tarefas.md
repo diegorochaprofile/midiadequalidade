@@ -4,8 +4,9 @@
 
 ## Em andamento
 
+- [ ] Refazer o blog no Next.js (recuperar o post "Site próprio ou só Instagram", hoje fora do ar)
 - [ ] Site: domínio próprio (midiadequalidade.com.br) + cases/logos reais (hoje placeholders)
-- [ ] Criar e iniciar perfil de Instagram
+- [ ] Montar perfil + conteúdo do Instagram @midiadequalidadeofc (handle já criado)
 - [ ] Mapear workflow de processos da agência
 - [ ] Definir divisão de funções entre Diego e Gabriel pro estágio inicial
 - [ ] Planejamento de crescimento com projeção de receita
@@ -19,4 +20,5 @@
 
 - [x] Instalar e configurar o MazyOS (2026-05-30)
 - [x] Identidade visual + logo + tipografia/paleta (2026-05-30)
-- [x] Site institucional dark/tech no ar — migrado pra Astro com blog (2026-05-30) — https://midiadequalidade.netlify.app
+- [x] Site institucional dark/tech no ar — Astro com blog (2026-05-30)
+- [x] Site oficial migrado pra Next.js (gerado via HELIX) no ar (2026-06-02) — https://midiadequalidade.netlify.app
