@@ -4,7 +4,7 @@
 > As skills de conteúdo, carrossel e post leem esse arquivo antes de criar qualquer visual.
 > Edite quando a marca evoluir.
 
-**Status:** **marca v2 fechada** (30/05/2026). Direção dark/tech minimalista, referência de acabamento MazyOS. Paleta puxada pro quase-preto, azul como protagonista, roxo rebaixado a glow sutil. Fontes e logos definidos abaixo.
+**Status:** **marca fechada** — direção dark/tech minimalista, referência de acabamento MazyOS. **Logo oficial: v3 "MQ" 3D metálica** (com foguete, tagline "Agência de Marketing"; adotada 02/06/2026 — ver seção Logo; a v2 flat virou legado). Paleta puxada pro quase-preto, azul como protagonista, roxo rebaixado a glow sutil. Fontes e logos definidos abaixo.
 
 ---
 
@@ -67,20 +67,16 @@ Dark, tech e bem produzido. Referência de acabamento: sites tipo AstroLabs (dar
 
 ## Logo
 
-**Logo principal — "MQ" 3D** (adotado em 30/05/2026)
-- `identidade/logo-mq-completo.png` — lockup completo: monograma MQ azul (com linhas de velocidade) + "Mídia de Qualidade" + tagline "Estratégia · Criatividade · Resultados". Fundo transparente. Usar no **footer do site**, propostas e apresentações.
-- `marketing/site/assets/logo-mark.png` — só o **monograma MQ** recortado. Usar no **header do site** (ao lado do nome) e no **favicon**.
+**Logo oficial — "MQ" 3D metálica** (v3, adotada em 02/06/2026)
+- `identidade/logo-mq-3d-mark.png` — **monograma MQ 3D** (com foguete), **fundo transparente**. É a logo que o site oficial (`site-next/`) usa no **header e footer**, e a base do **favicon** (recorte quadrado em `site-next/app/icon.png`). Use sempre que precisar só do símbolo.
+- `identidade/logo-mq-3d-completo.png` — **lockup completo 3D**: monograma + foguete + "MÍDIA DE QUALIDADE" + tagline **"Agência de Marketing"**, sobre fundo escuro. Usar em apresentações, propostas e peças sobre fundo escuro.
+- **Cor/acabamento:** azul metálico (#2E6BFF de base) + cromado/prata, com glow azul. Sobre dark fica brilhando; em fundo claro, preferir o lockup com atenção ao contraste.
+- **Tamanho:** símbolo/monograma ≥ 40px; lockup ≥ 160px de largura.
+- ⚠️ É um **render raster** (não vetorial). Pra fundo transparente em tamanhos pequenos, usar o `logo-mq-3d-mark.png` (já recortado). Pra favicon/corte quadrado, recortar o bounding box do monograma.
 
-**Avatar social — logo MQ circular** (`identidade/logo-mq-badge.png`)
-- Mesma marca em badge circular com fundo escuro. Usar como **foto de perfil das redes** (Instagram etc.).
-
-**Legado — monograma plano SVG** (`identidade/logo-mq.svg`, `identidade/logo-mq-branco.svg`)
-- Primeira versão vetorial flat. Mantida como alternativa monocromática/vetorial; o site passou a usar a versão 3D acima.
-
-- **Fonte do logo:** Inter Tight 700. **Cores:** gradiente azul #2E6BFF→#5B8DFF; versão branca pra fundos com foto/cor.
-- **Onde usar:** header do site e de propostas, slide final do carrossel (CTA), apresentações, avatar das redes.
-- **Tamanho sugerido:** largura 120-200px nos HTMLs; símbolo/monograma ≥ 48px.
-- **Nota técnica:** os SVGs carregam a fonte via `@import` (renderiza certo no navegador). Pra exportar PNG/usar offline (avatar do Instagram), abrir o SVG no navegador com a fonte carregada e exportar, ou converter as letras em curvas num editor vetorial.
+**Legado — marca v2 flat** (mantida como alternativa vetorial/monocromática; **não é a oficial**)
+- `identidade/logo-mq-completo.png` e `identidade/logo-mq-badge.png` — lockup/badge flat azul, tagline antiga "Estratégia · Criatividade · Resultados".
+- `identidade/logo-mq.svg`, `identidade/logo-mq-branco.svg` — monograma plano em SVG (útil quando precisar de vetor).
 - **Pré-visualização da marca:** `identidade/marca-preview.html`.
 
 ---
