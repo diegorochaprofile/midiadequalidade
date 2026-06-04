@@ -13,12 +13,13 @@ export const contact = {
 
 export const nav = {
   links: [
-    { label: "Serviços", href: "#servicos" },
-    { label: "Método", href: "#metodo" },
-    { label: "Cases", href: "#cases" },
-    { label: "Contato", href: "#contato" },
+    { label: "Serviços", href: "/#servicos" },
+    { label: "Método", href: "/#metodo" },
+    { label: "Cases", href: "/#cases" },
+    { label: "Blog", href: "/blog" },
+    { label: "Contato", href: "/#contato" },
   ],
-  cta: { label: "Fala com a gente", href: "#contato" },
+  cta: { label: "Fala com a gente", href: "/#contato" },
 };
 
 export const hero = {

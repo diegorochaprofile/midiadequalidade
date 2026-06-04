@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Inter_Tight } from "next/font/google";
 import "./globals.css";
+import { Nav } from "@/components/sections/Nav";
+import { Footer } from "@/components/sections/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,7 +31,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${interTight.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Nav />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

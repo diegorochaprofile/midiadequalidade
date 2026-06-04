@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
 
 // Tokens: identidade Mídia de Qualidade (dark-first, azul protagonista)
 // aplicada sobre a estrutura/motion decodificados de easygrowth.com.br.
@@ -37,6 +38,22 @@ const config: Config = {
       },
       maxWidth: {
         container: "1200px",
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            "--tw-prose-invert-body": "#9AA3BF",
+            "--tw-prose-invert-headings": "#F4F6FF",
+            "--tw-prose-invert-lead": "#9AA3BF",
+            "--tw-prose-invert-bold": "#F4F6FF",
+            "--tw-prose-invert-links": "#5B8DFF",
+            "--tw-prose-invert-bullets": "#2E6BFF",
+            "--tw-prose-invert-hr": "rgba(244,246,255,0.1)",
+            "--tw-prose-invert-quotes": "#F4F6FF",
+            "--tw-prose-invert-quote-borders": "#2E6BFF",
+            "--tw-prose-invert-counters": "#5B6480",
+          },
+        },
       },
       transitionDuration: {
         fast: "200ms",
@@ -86,7 +103,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [typography],
 };
 
 export default config;

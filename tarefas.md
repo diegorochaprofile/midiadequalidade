@@ -4,7 +4,6 @@
 
 ## Em andamento
 
-- [ ] Refazer o blog no Next.js (recuperar o post "Site próprio ou só Instagram", hoje fora do ar)
 - [ ] Site: domínio próprio (midiadequalidade.com.br) + cases/logos reais (hoje placeholders)
 - [ ] Montar perfil + conteúdo do Instagram @midiadequalidadeofc (handle já criado)
 - [ ] Mapear workflow de processos da agência
@@ -22,3 +21,4 @@
 - [x] Identidade visual + logo + tipografia/paleta (2026-05-30)
 - [x] Site institucional dark/tech no ar — Astro com blog (2026-05-30)
 - [x] Site oficial migrado pra Next.js (gerado via HELIX) no ar (2026-06-02) — https://midiadequalidade.netlify.app
+- [x] Blog recuperado no Next.js (2 posts, rota /blog) no ar (2026-06-03)

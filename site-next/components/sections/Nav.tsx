@@ -10,7 +10,7 @@ export function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/8 bg-canvas/80 backdrop-blur-md">
       <Container className="flex h-[72px] items-center justify-between">
-        <a href="#top" aria-label="Mídia de Qualidade — início" className="flex items-center">
+        <a href="/" aria-label="Mídia de Qualidade — início" className="flex items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/logo-mq.png"
